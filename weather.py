@@ -14,8 +14,8 @@ def get_weather(_zip):
         'weather_description': resp['weather'][0]['description'],
         'weather_temp': resp['main']['temp'],
         'weather_feels_like': resp['main']['feels_like'],
-        'weather_feels_min': resp['main']['temp_min'],
-        'weather_feels_max': resp['main']['temp_max'],
+        'weather_temp_min': resp['main']['temp_min'],
+        'weather_temp_max': resp['main']['temp_max'],
         'weather_wind_speed': resp['wind']['speed'],
         'weather_sunset_time': datetime.fromtimestamp(int(resp['sys']['sunset']), get_localzone()).strftime('%H:%M'),
         'location_name': resp['name']
@@ -24,7 +24,7 @@ def get_weather(_zip):
     annoucement = f"""
     Today\'s weather for {weather['location_name']} is {weather['weather_description']}.
     It\'s {weather['weather_temp']} degrees but feels like {weather['weather_feels_like']} degrees.
-    The coldest temperature today will be {weather['weather_feels_min']} and the hottest temperature will be {weather['weather_feels_max']}.
+    The coldest temperature today will be {weather['weather_temp_min']} and the hottest temperature will be {weather['weather_temp_max']}.
     The windspeed is currently {weather['weather_wind_speed']} meters per second.
     Today's sunset will be at {weather['weather_sunset_time']}.
     """
