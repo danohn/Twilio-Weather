@@ -9,7 +9,6 @@ weather_api_key = os.environ['OPEN_WEATHER_MAP_API_KEY']
 def get_weather(_zip):
     
     url = f'https://api.openweathermap.org/data/2.5/weather?zip={_zip},au&units=metric&appid={weather_api_key}'
-    print(url)
     resp = requests.get(url).json()
     weather = {
         'weather_description': resp['weather'][0]['description'],
